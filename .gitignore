@@ -1,7 +1,13 @@
-# Ignore IntelliJ IDEA project files
-.idea/
-*.iml
+# IntelliJ config files
+.idea/*
+!.idea/artifacts/
+!.idea/libraries/
+!.idea/modules.xml
+!.idea/misc.xml
+!.idea/*.iml
 
 # Ignore build outputs
 /out/
 
+# macOS
+.DS_Store
