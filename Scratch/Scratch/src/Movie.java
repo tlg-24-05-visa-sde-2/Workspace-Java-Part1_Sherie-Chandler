@@ -1,8 +1,25 @@
 public class Movie {
-    // fields or instance variables
+    // fields or instance variables at the top
     private String title;
     private int releaseYear;
     private double revenue;
+
+    // constructors--these get called when the client says new.
+    public Movie(){
+        // no-op
+    }
+
+    public Movie(String title){
+setTitle(title);
+    }
+
+    public Movie(String title, int releaseYear, double revenue){
+        // delegate to setters for any data validation/conversion they might be doing
+        this(title); // delegate to ctor above me for title
+        setReleaseYear(releaseYear); // delegate to setters for the rest of them
+        setRevenue(revenue); // by delegating to their respective setters
+
+    }
 
     // action methods or business--what do movies do
     // play(), pause(), rewind(), fastForward(), stop(), goTo()
