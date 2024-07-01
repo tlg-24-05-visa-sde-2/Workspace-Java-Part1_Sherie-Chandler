@@ -5,7 +5,8 @@
 public class Television {
     // Properties or attributes, also known as "fields" or "instance variables".
     // These are the default values when values are not specified.
-    private String brand; // HW encapsulated the data to make it private
+
+    private String brand; // HW encapsulated the data to make it private-now the data is only available inside
     private int volume; // HW encapsulated the data to make it private
     private boolean isOn;  // HW Added isOn ---encapsulated boolean property
 
@@ -14,7 +15,7 @@ public class Television {
         // Default constructor
     }
 
-    // Methods
+    // Business Methods
 
     // This method turns on the television and sets it to the specified volume.
     public void turnOn() {
@@ -35,7 +36,7 @@ public class Television {
         return brand;
     }
 
-    // This method sets the brand of the television.
+    // This method sets the brand of the television bc the parameter is named the same as the field.
     public void setBrand(String brand) {
         this.brand = brand;
     }
