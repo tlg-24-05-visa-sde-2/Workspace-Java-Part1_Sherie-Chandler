@@ -2,24 +2,29 @@
  * This class models the workings of a television.
  * It has properties (attributes) and business methods, but no main() method.
  */
-class Television {
+public class Television {
     // Properties or attributes, also known as "fields" or "instance variables".
     // These are the default values when values are not specified.
-    private String brand;
-    private int volume;
+    private String brand; // HW encapsulated the data to make it private
+    private int volume; // HW encapsulated the data to make it private
+    private boolean isOn;  // HW Added isOn ---encapsulated boolean property
+
+    // Constructor
+    public Television() {
+        // Default constructor
+    }
 
     // Methods
 
     // This method turns on the television and sets it to the specified volume.
     public void turnOn() {
-        // Calls a private method for this task (commented out in this version).
-        // boolean isConnected = verifyInternetConnection();
-
+        this.isOn = true;  // HW Update isOn property
         System.out.println("Turning on your " + brand + " television to volume " + volume);
     }
 
     // This method turns off the television.
     public void turnOff() {
+        this.isOn = false;  // HW Update isOn property
         System.out.println("Turning off... goodbye!");
     }
 
@@ -45,13 +50,18 @@ class Television {
         this.volume = volume;
     }
 
-    // This method returns a string representation of the television object.
-    public String toString() {
-        return "Television: brand=" + brand + ", volume=" + volume;
+    // This method returns whether the television is on.
+    public boolean isOn() {
+        return isOn;  // HW Added getter for isOn
     }
 
-    // Private method to verify internet connection (commented out in this version).
-    // private boolean verifyInternetConnection() {
-    //    return true; // fake implementation
-    // }
+    // This method sets the on state of the television.
+    public void setOn(boolean on) {
+        isOn = on;  // HW Added setter for isOn
+    }
+
+    // This method returns a string representation of the television object.
+    public String toString() {
+        return "Television: brand=" + brand + ", volume=" + volume + ", isOn=" + isOn;  // Updated toString
+    }
 }

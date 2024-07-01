@@ -7,9 +7,10 @@ class TelevisionClient {
     public static void main(String[] args) {
         // Create an instance of Television and set its properties.
         Television tv1 = new Television();
-        tv1.setBrand("Samsung");
-        tv1.setVolume(32);
+        tv1.setBrand("Samsung"); //HW updated to use setter-right click generate did not work
+        tv1.setVolume(32);  //HW updated to use setter-right
 
+        //create a second instance of Television and set its properties also.
         Television tv2 = new Television();
         tv2.setBrand("Sony");
         tv2.setVolume(50);
@@ -17,13 +18,15 @@ class TelevisionClient {
         // Create a third Television object, but do not set its properties.
         Television tv3 = new Television();
 
-        // Turn on and off the first television.
+        // Turn them all on
         tv1.turnOn();
         tv1.turnOff();
+        tv3.turnOn();
 
-        // Turn on and off the second television.
+        // Turn them all off
         tv2.turnOn();
         tv2.turnOff();
+        tv3.turnOff();
 
         // Turn on and off the third television.
         tv3.turnOn();

@@ -12,19 +12,26 @@ class Calculator {
     }
 
     /*
-     * Returns a random integer between 1 and 11, inclusive.
-     *
-     * Hint: see a class called Math (in package java.lang), look for a helpful method here.
-     * Note: these methods are all "static" so you don't need to create an object to use them and you can call them as such:
-     * Math.methodName()
+     * Returns a random integer between min and max (inclusive).
+     * Uses Math.random() to generate a random double between 0.0 (inclusive) and 1.0 (exclusive),
+     * scales it to the desired range, and then casts it to an integer.
      */
+    int randomInt(int min, int max) {
+        double rand = Math.random();   // Generates a random double between 0.0 (inclusive) and 1.0 (exclusive)
+        double scaled = (rand * (max - min + 1)) + min; // Scales to the range [min, max]
+        int result = (int) scaled; // Casts the scaled double to an integer
+        return result;
+    }
 
+    /*
+     * Returns a random integer between 1 and 11 (inclusive).
+     * Uses Math.random() to generate a random double between 0.0 (inclusive) and 1.0 (exclusive),
+     * scales it to the range [1, 11], and then casts it to an integer.
+     */
     int randomInt() {
-        int result = 0;
-
-        double rand = Math.random(); // returns a double between 0.0 and 0.9999999999999999
-        double scaled = (rand * 11) + 1; // scale it to be between 1 and 11.9999999999999999
-        result = (int) scaled; // explicit downcast from double to int
+        double rand = Math.random(); // Generates a random double between 0.0 (inclusive) and 1.0 (exclusive)
+        double scaled = (rand * 11) + 1; // Scales to the range [1, 11]
+        int result = (int) scaled; // Casts the scaled double to an integer
         return result;
     }
 }

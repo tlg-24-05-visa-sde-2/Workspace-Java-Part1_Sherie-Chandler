@@ -5,7 +5,7 @@
 
 
 class Guitar {
-    // prperties or attributes, we call them "instance variables" or "fields" in Java
+    // properties or attributes, we call them "instance variables" or "fields" in Java
     String brand;
     String type; //constraint: ["accoustic", "electric", "classical"]
     int strings = 6; // (default 6)
@@ -18,7 +18,17 @@ class Guitar {
     void tune() {
         System.out.println("Tuning your " + brand + " " + strings + "-string " + type + " guitar");
     }
-    void play(String song) {
+    public void play(String song) {
         System.out.println("Playing" + song + "")
     }
+
+    // accessor methods - provide "controlled access" to the object's fields
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
 }
