@@ -1,7 +1,3 @@
-/*
- * Business class for WhiteboardModel code review assignment.
- *
- */
 
 
 class Guitar {
