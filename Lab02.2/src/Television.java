@@ -1,75 +1,63 @@
 /*
- * This class models the workings of a television.
- * It has properties (attributes) and business methods, but no main() method.
+ * Application or system class to model the workings of a television.
+ * It has properties/attributes, it has business methods, but NO main() method.
+ * Order your ctors from smallest to largest
+ * note-setters are designed to assign values to fields
  */
-public class Television {
-    // Properties or attributes, also known as "fields" or "instance variables".
-    // These are the default values when values are not specified.
+class Television {
+    // properties or attributes - "fields" or "instance variables"
+    private String brand = "Toshiba"; // Private field to store the brand of the television, defaulting to "Toshiba"
+    private int volume = 1; // Private field to store the volume level of the television, defaulting to 1
 
-    private String brand; // Encapsulated the data to make it private
-    private int volume; // Encapsulated the data to make it private
-    private boolean isOn;  // Added encapsulated boolean property for on/off state
-
-    // Constructor
+    // constructors
     public Television() {
-        // Default constructor
+        // Default constructor, initializes with default values ("Toshiba" brand, volume level 1)
     }
 
-    // Business Methods
+    public Television(String brand) {
+        setBrand(brand); // Constructor to set the brand of the television
+    }
 
-    // This method turns on the television and sets it to the specified volume.
+    public Television(String brand, int volume) {
+        this(brand); // Constructor to set both brand and volume
+        setVolume(volume); // Set the volume of the television
+    }
+
+    // functions or operations - "methods"
     public void turnOn() {
-        this.isOn = true; // Updated to turn on the television
-        boolean isConnected = verifyInternetConnection(); // Call to private method
-        System.out.println("Turning on your " + brand + " television to volume " + volume);
+        boolean isConnected = verifyInternetConnection(); // Check internet connection status (unused in current code)
+        System.out.println("Turning on your " + getBrand() + " television and setting volume to " + getVolume());
     }
 
-    // This method turns off the television.
-    public void turnOff() {
-        this.isOn = false;  // Updated to turn off the television
-        System.out.println("Turning off... goodbye!");
+    public void turnoff () {
+        System.out.println("Shutting down...goodbye");
     }
 
-    // Private method to verify internet connection
     private boolean verifyInternetConnection() {
-        return true; // Fake implementation, could check actual connection status
+        return true;
     }
 
-    // Accessor methods: getters, setters, toString
-
-    // This method returns the brand of the television.
+    // accessor methods - "getters, setters, toString"
     public String getBrand() {
-        return brand;
+        return brand; // Getter method to retrieve the brand of the television
     }
 
-    // This method sets the brand of the television.
     public void setBrand(String brand) {
-        this.brand = brand;
+        this.brand = brand; // Setter used to set the brand of the television
     }
 
-    // This method returns the volume of the television.
     public int getVolume() {
-        return volume;
+        return volume; // Getter used to retrieve the volume level of the television
     }
 
-    // This method sets the volume of the television.
     public void setVolume(int volume) {
-        this.volume = volume;
+        this.volume = volume; // Setter used to set the volume
     }
 
-    // This method returns whether the television is on.
-    public boolean isOn() {
-        return isOn;
-    }
-
-    // This method sets the on state of the television.
-    public void setOn(boolean on) {
-        isOn = on;
-    }
-
-    // This method returns a string representation of the television object.
-    @Override
     public String toString() {
-        return "Television: brand=" + brand + ", volume=" + volume + ", isOn=" + isOn;
+        return "Television: " +
+                "Brand = " + getBrand() +
+                ", Volume = " + getVolume(); // Override of toString
     }
+
 }
