@@ -6,9 +6,9 @@ public class Television {
     // Properties or attributes, also known as "fields" or "instance variables".
     // These are the default values when values are not specified.
 
-    private String brand; // HW encapsulated the data to make it private-now the data is only available inside
-    private int volume; // HW encapsulated the data to make it private
-    private boolean isOn;  // HW Added isOn ---encapsulated boolean property
+    private String brand; // Encapsulated the data to make it private
+    private int volume; // Encapsulated the data to make it private
+    private boolean isOn;  // Added encapsulated boolean property for on/off state
 
     // Constructor
     public Television() {
@@ -19,24 +19,30 @@ public class Television {
 
     // This method turns on the television and sets it to the specified volume.
     public void turnOn() {
-        this.isOn = true;  // HW Update isOn property
+        this.isOn = true; // Updated to turn on the television
+        boolean isConnected = verifyInternetConnection(); // Call to private method
         System.out.println("Turning on your " + brand + " television to volume " + volume);
     }
 
     // This method turns off the television.
     public void turnOff() {
-        this.isOn = false;  // HW Update isOn property
+        this.isOn = false;  // Updated to turn off the television
         System.out.println("Turning off... goodbye!");
     }
 
-    // Accessor methods
+    // Private method to verify internet connection
+    private boolean verifyInternetConnection() {
+        return true; // Fake implementation, could check actual connection status
+    }
+
+    // Accessor methods: getters, setters, toString
 
     // This method returns the brand of the television.
     public String getBrand() {
         return brand;
     }
 
-    // This method sets the brand of the television bc the parameter is named the same as the field.
+    // This method sets the brand of the television.
     public void setBrand(String brand) {
         this.brand = brand;
     }
@@ -53,16 +59,17 @@ public class Television {
 
     // This method returns whether the television is on.
     public boolean isOn() {
-        return isOn;  // HW Added getter for isOn
+        return isOn;
     }
 
     // This method sets the on state of the television.
     public void setOn(boolean on) {
-        isOn = on;  // HW Added setter for isOn
+        isOn = on;
     }
 
     // This method returns a string representation of the television object.
+    @Override
     public String toString() {
-        return "Television: brand=" + brand + ", volume=" + volume + ", isOn=" + isOn;  // Updated toString
+        return "Television: brand=" + brand + ", volume=" + volume + ", isOn=" + isOn;
     }
 }
