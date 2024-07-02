@@ -25,7 +25,7 @@ class AlarmClockClient {
         clock3.snooze();
         System.out.println();
 
-        // show their toString() methods in action
+        // toString()
         System.out.println(clock1.toString());
         System.out.println(clock2.toString());
         System.out.println(clock3.toString());
