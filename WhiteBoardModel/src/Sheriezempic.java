@@ -19,13 +19,13 @@ class Sheriezempic {
 
     }
 
-    public Sheriezempic(String activeIngredient) {
-        set activeIngredient(activeIngredient);
+    public Sheriezempic(String sideEffect) {
+        set sideEffect(sideEffect);
 
     }
 
-    public Sheriezempic(String activeIngredient) {
-        set activeIngredient(activeIngredient);
+    public Sheriezempic(String mechanismOfAction) {
+        set mechanismOfAction(mechanismOfAction);
 
 
 
