@@ -8,23 +8,23 @@ class Television {
     // class-level ("static") variables-these live in a classwide common area, above the instances.
     public static final int MIN_VOLUME = 0;
     public static final int MAX_VOLUME = 100;
-
     public static int instanceCount = 0;
 
-    // this method is also "up there" in the
     // properties or attributes - "fields" or "instance variables"
-    private String brand = "Toshiba"; // Private field to store the brand of the television, defaulting to "Toshiba"
-    private int volume = 1; // Private field to store the volume level of the television, defaulting to 1
+    private String brand; // Private field to store the brand of the television, defaulting to "Toshiba"
+    private int volume; // Private field to store the volume level of the television, defaulting to 1
+    private boolean isMuted;
+    private int oldVolume;
 
     // constructors
     public Television() {
-        instanceCount++; // instanceCount = instanceCount + 1
+        instanceCount++; // Increment instance count
         // Default constructor, initializes with default values ("Toshiba" brand, volume level 1)
     }
 
     public Television(String brand) {
-        this();           // delegate to no-arg ctor above for the increment
-        setBrand(brand); // delegate to setter for any validation/conversion it might be doing
+        this(); // Delegate to no-arg ctor above for instance count increment
+        setBrand(brand); // Delegate to setter for any validation/conversion it might be doing
     }
 
     public Television(String brand, int volume) {
@@ -34,12 +34,25 @@ class Television {
 
     // functions or operations - "methods"
     public void turnOn() {
-        boolean isConnected = verifyInternetConnection(); // Check internet connection status (unused in current code)
+        boolean isConnected = verifyInternetConnection(); // Check internet connection status
         System.out.println("Turning on your " + getBrand() + " television and setting volume to " + getVolume());
     }
 
     public void turnoff () {
         System.out.println("Shutting down...goodbye");
+    }
+
+    public void mute() {
+        if (!isMuted) {
+            oldVolume = volume;
+            volume = 0; // Set volume to 0 when muting
+            isMuted = true;
+            System.out.println("TV is now muted");
+        } else {
+            volume = oldVolume;
+            isMuted = false;
+            System.out.println("TV is now unmuted");
+        }
     }
 
     private boolean verifyInternetConnection() {
@@ -52,7 +65,16 @@ class Television {
     }
 
     public void setBrand(String brand) {
-        this.brand = brand; // Setter used to set the brand of the television
+        switch (brand) {
+            case "Samsung":
+            case "LG":
+            case "Toshiba":
+            case "Sony":
+                this.brand = brand;
+                break;
+            default:
+                System.out.println("Invalid brand: " + brand + ". Only Samsung, LG, Toshiba, or Sony are valid brands.");
+        }
     }
 
     public int getVolume() {
@@ -62,21 +84,23 @@ class Television {
     public void setVolume(int volume) {
         if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
             this.volume = volume;
-            // Setter used to set the volume
         } else {
-            System.out.println("Volume must be between " + MIN_VOLUME + " and " + MAX_VOLUME);
+            System.out.println("Invalid volume " + MIN_VOLUME + " and " + MAX_VOLUME);
         }
     }
 
-    public static int getInstanceCount() {
-        return instanceCount; // static getter
+    public boolean isMuted() {
+        return isMuted;
     }
 
+    public static int getInstanceCount() {
+        return instanceCount; // static getter for instance count
+    }
 
     public String toString() {
         return "Television: " +
                 "Brand = " + getBrand() +
-                ", Volume = " + getVolume(); // Override of toString
+                ", Volume = " + getVolume(); // Override of toString to display brand and volume
     }
 
 }
