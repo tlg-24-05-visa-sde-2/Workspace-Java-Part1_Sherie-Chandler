@@ -18,10 +18,15 @@ public class CalculatorTest {
         }
 
         // print your report outside of the for loop
+        String msg = (isCorrect) ? "IT WORKS!" : "IT's BROKE!";
+        System.out.println(msg);
+        /*
         if (isCorrect) {
             System.out.println("It Works!");
         } else {
             System.out.println("There is a problem with the randomInt method.");
         }
+
+         */
     }
 }
