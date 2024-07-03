@@ -50,7 +50,10 @@ class Movie {
     }
 
     public String toString() {
-        return "Movie: title=" + getTitle() + ", releaseYear=" + getReleaseYear() +
-                ", revenue=" + getRevenue();
+        // TODO July 3rd--slide 167: make it right, so that a null revenue shows up as null,
+        // and a non-null revenue shows up as 123,000, 345.94
+        // Hint: if revenue is null, use %s, otherwise use %,.2F
     }
-}
+        return String.format("Movue: title=%, releaseYear=%s, revenue=%s, rating=%s, genre=%s", getTitle(), getReleaseYear(), getRevenue(), getRating(), getGenre());
+
+        return "Movie: title=" + getTitle() + ", releaseYear=" + getReleaseYear() + " revenue=+" + getRevenue() + ", rating=" + getRating() + ", genre=" + getGenre();

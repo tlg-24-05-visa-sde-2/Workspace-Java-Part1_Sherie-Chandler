@@ -11,8 +11,8 @@ class Television {
     public static int instanceCount = 0;
 
     // properties or attributes - "fields" or "instance variables"
-    private String brand; // Private field to store the brand of the television, defaulting to "Toshiba"
-    private int volume; // Private field to store the volume level of the television, defaulting to 1
+    private String brand = "Toshiba"; // Private field to store the brand of the television, defaulting to "Toshiba"
+    private int volume = 1; // Private field to store the volume level of the television, defaulting to 1
     private boolean isMuted;
     private int oldVolume;
     private DisplayType display = DisplayType.LED;
@@ -44,7 +44,7 @@ class Television {
         System.out.println("Turning on your " + getBrand() + " television and setting volume to " + getVolume());
     }
 
-    public void turnoff () {
+    public void turnOff() { // Corrected method name to turnOff
         System.out.println("Shutting down...goodbye");
     }
 
@@ -91,30 +91,32 @@ class Television {
         if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
             this.volume = volume;
         } else {
-            System.out.println("Invalid volume " + MIN_VOLUME + " and " + MAX_VOLUME);
+            System.out.printf("Invalid volume: %s. Valid range is %s to %s(inclusive)."
+                  volume, MIN_VOLUME, MAX_VOLUME);
         }
     }
 
     public DisplayType getDisplay() {
-        return display; // no need to validate and that is why I use it. Command + N
+        return display; // Getter method to retrieve the display type of the television
     }
 
     public void setDisplay(DisplayType display) {
-        this.display = display;
+        this.display = display; // Setter method to set the display type of the television
     }
 
     public boolean isMuted() {
-        return isMuted;
+        return isMuted; // Getter method to check if the television is muted
     }
 
     public static int getInstanceCount() {
-        return instanceCount; // static getter for instance count
+        return instanceCount; // Static getter for instance count
     }
 
+    @Override
     public String toString() {
         return "Television: " +
                 "Brand = " + getBrand() +
-                ", Volume = " + getVolume(); ", display= " + getDisplay(); // Override of toString to display brand and volume
+                ", Volume = " + getVolume() +
+                ", Display = " + getDisplay(); // Override of toString to display brand and volume
     }
-
 }
