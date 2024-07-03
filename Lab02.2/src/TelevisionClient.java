@@ -11,9 +11,10 @@ class TelevisionClient {
         // Create instances of Television and set their properties
         Television tv1 = new Television();
         tv1.setBrand("Samsung"); // Set brand of tv1
-        tv1.setVolume(Television.MAX_VOLUME); // crank it up
+        tv1.setVolume(Television.MAX_VOLUME);// crank it up
+        tv1.setDisplay(DisplayType.PLASMA);
 
-        Television tv2 = new Television("Sony", Television.MIN_VOLUME); // keep quiet
+        Television tv2 = new Television("Sony", Television.MIN_VOLUME, DisplayType.OLED); // keep quiet
 
         Television tv3 = new Television("LG"); // Create tv3 with brand
 

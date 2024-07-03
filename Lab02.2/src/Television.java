@@ -15,6 +15,7 @@ class Television {
     private int volume; // Private field to store the volume level of the television, defaulting to 1
     private boolean isMuted;
     private int oldVolume;
+    private DisplayType display = DisplayType.LED;
 
     // constructors
     public Television() {
@@ -30,6 +31,11 @@ class Television {
     public Television(String brand, int volume) {
         this(brand); // Constructor to set both brand and volume
         setVolume(volume); // Set the volume of the television
+    }
+
+    public Television(String brand, int volume, DisplayType display) {
+        this(brand, volume);
+        setDisplay(display);
     }
 
     // functions or operations - "methods"
@@ -89,6 +95,14 @@ class Television {
         }
     }
 
+    public DisplayType getDisplay() {
+        return display; // no need to validate and that is why I use it. Command + N
+    }
+
+    public void setDisplay(DisplayType display) {
+        this.display = display;
+    }
+
     public boolean isMuted() {
         return isMuted;
     }
@@ -100,7 +114,7 @@ class Television {
     public String toString() {
         return "Television: " +
                 "Brand = " + getBrand() +
-                ", Volume = " + getVolume(); // Override of toString to display brand and volume
+                ", Volume = " + getVolume(); ", display= " + getDisplay(); // Override of toString to display brand and volume
     }
 
 }
