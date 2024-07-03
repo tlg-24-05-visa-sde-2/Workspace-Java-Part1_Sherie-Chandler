@@ -1,31 +1,30 @@
-public class Movie {
-    // fields or instance variables at the top
+class Movie {
+    // fields or instance variables
     private String title;
     private int releaseYear;
     private double revenue;
+    private Rating rating;
+    private Genre genre;
 
-    // constructors--these get called when the client says new.
-    public Movie(){
+    // constructors - these get called when the client says "new"
+    public Movie() {
         // no-op
     }
 
-    public Movie(String title){
-setTitle(title);
+    public Movie(String title) {
+        setTitle(title);
     }
 
-    public Movie(String title, int releaseYear, double revenue){
-        // delegate to setters for any data validation/conversion they might be doing
-        this(title); // delegate to ctor above me for title
-        setReleaseYear(releaseYear); // delegate to setters for the rest of them
-        setRevenue(revenue); // by delegating to their respective setters
-
+    public Movie(String title, int releaseYear, double revenue) {
+        this(title);                  // delegate to ctor above me for title
+        setReleaseYear(releaseYear);  // handle the rest of them myself,
+        setRevenue(revenue);          // by delegating to their respective setters
     }
 
-    // action methods or business--what do movies do
+    // business or "action" methods
     // play(), pause(), rewind(), fastForward(), stop(), goTo()
-    // accessor methods -provide "controlled" access to the object's (private) fields
 
-
+    // accessor methods - provide "controlled" access to the object's (private) fields
     public String getTitle() {
         return title;
     }
@@ -51,9 +50,7 @@ setTitle(title);
     }
 
     public String toString() {
-        // tell me about yourself
-        return "Movie: title=" + getTitle() + ", " +
-                "releaseYear=" + getReleaseYear() +
+        return "Movie: title=" + getTitle() + ", releaseYear=" + getReleaseYear() +
                 ", revenue=" + getRevenue();
     }
 }
