@@ -1,4 +1,4 @@
-class Sheriezempic {
+class Sheriezempic
     // Properties or Attributes (with Data Encapsulation)
     private String activeIngredient = "Sheriechandolariem";
     private int strengthMilligrams = 100;
@@ -17,16 +17,33 @@ class Sheriezempic {
        System.out.println("How does Sheriezempic work?:" + mechanismOfAction);
     }
 
-    public void sideEffects () { // write an if-else statement that if the adverse reaction happens than a potential side effect will be clucking like a chicken.
+    public void displaySideEffects () { // write an if-else statement that if the adverse reaction happens than a potential side effect will be clucking like a chicken.
         System.out.println("Potential Side Effect:" + sideEffects);
+        if (adverseReactionOccured) {
+            switch (adverseReactionSeverity) {
+                case: Mild
+                        System.out.println("Adverse Reaction Mild: " + adverseReactions);
+                break;
 
+                switch (adverseReactionSeverity) {
+                    case: Moderate
+                        System.out.println("Adverse Reaction Moderate: " + sideEffects);
+                        break;
+
+                    switch (adverseReactionSeverity) {
+                        case: Severe
+                            System.out.println("Adverse Reaction Severe: " + sideEffects + adverseReactions));
+                            break;
     }
 
 public void
 
     // Constructors
 
-    // Business or Action Methods
+    // Business or Action Methods: add enum (double check placement-maybe it should be under your initial class)
+    public enum AdverseReactionSeverity{
+        Mild, Moderate, Severe;
+    }
 
     // Data Validation
 
