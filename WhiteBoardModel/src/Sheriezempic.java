@@ -8,8 +8,7 @@ class Sheriezempic
     private String mechanismOfAction = "Sheriechandolariemase binds to leptin receptors in the hypothalamus, which leads to decreased food intake";
 
     // Methods
-
-    public void displayDrugInfo() {
+public void displayDrugInfo() {
         System.out.println("Drug Information:");
         System.out.println("Active Ingredient:" + activeIngredient);
         System.out.println("Strength:" + strengthMilligrams + "mg");
