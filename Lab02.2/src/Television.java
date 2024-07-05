@@ -70,7 +70,7 @@ class Television {
         return brand; // Getter method to retrieve the brand of the television
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(String brand) { // don't use case in your whiteboard model, but enum types
         switch (brand) {
             case "Samsung":
             case "LG":
@@ -91,8 +91,8 @@ class Television {
         if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
             this.volume = volume;
         } else {
-            System.out.printf("Invalid volume: %s. Valid range is %s to %s(inclusive)."
-                  volume, MIN_VOLUME, MAX_VOLUME);
+            System.out.printf("Invalid volume: %s. Valid range is %s to %s (inclusive).",
+                    volume, MIN_VOLUME, MAX_VOLUME);
         }
     }
 
@@ -112,7 +112,7 @@ class Television {
         return instanceCount; // Static getter for instance count
     }
 
-    @Override
+
     public String toString() {
         return "Television: " +
                 "Brand = " + getBrand() +
