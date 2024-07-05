@@ -15,10 +15,17 @@ class Movie {
         setTitle(title);
     }
 
-    public Movie(String title, int releaseYear, double revenue) {
+    public Movie(String title, int releaseYear, double revenue, Rating rating, Genre genre) {
         this(title);                  // delegate to ctor above me for title
         setReleaseYear(releaseYear);  // handle the rest of them myself,
         setRevenue(revenue);          // by delegating to their respective setters
+        setRating(rating);
+        setGenre(genre);              // add this to assign the genre
+    }
+
+    public Movie(String title, Genre genre) {
+        setTitle(title);
+        setGenre(genre);
     }
 
     // business or "action" methods
@@ -49,11 +56,23 @@ class Movie {
         this.revenue = revenue;
     }
 
-    public String toString() {
-        // TODO July 3rd--slide 167: make it right, so that a null revenue shows up as null,
-        // and a non-null revenue shows up as 123,000, 345.94
-        // Hint: if revenue is null, use %s, otherwise use %,.2F
+    public Rating getRating() {
+        return rating;
     }
-        return String.format("Movue: title=%, releaseYear=%s, revenue=%s, rating=%s, genre=%s", getTitle(), getReleaseYear(), getRevenue(), getRating(), getGenre());
 
-        return "Movie: title=" + getTitle() + ", releaseYear=" + getReleaseYear() + " revenue=+" + getRevenue() + ", rating=" + getRating() + ", genre=" + getGenre();
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public String toString() {
+        return String.format("Movie: title=%s, releaseYear=%d, revenue=%,.2f, rating=%s, genre=%s", getTitle(), getReleaseYear(), getRevenue(), getRating(), getGenre());
+    }
+}

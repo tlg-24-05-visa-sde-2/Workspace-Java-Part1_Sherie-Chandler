@@ -9,6 +9,11 @@ class WrapperTest {
         Long populationLong = Long.valueOf(populationInput);
 
         String priceInput = "12.49";
-        double price = Double.parseDouble
+        double price = Double.parseDouble(priceInput);
+        Double priceDouble = Double.valueOf(priceInput);
+
+        String isSunnyInput = "true";
+        boolean isSunny = Boolean.parseBoolean(isSunnyInput);
+        Boolean isSunnyBoolean = Boolean.valueOf(isSunnyInput);
     }
 }
