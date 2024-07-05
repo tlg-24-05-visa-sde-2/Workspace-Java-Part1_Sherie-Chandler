@@ -1,3 +1,5 @@
+// This code was designed to inform the medical community of the groundbreaking drug Sheriezempic that is designed to decrease morbid obesity in patients with BMIs exceeding 40, its implications, and chemical makeup.
+
 class Sheriezempic {
     // Properties or Attributes (with Data Encapsulation)
     private String activeIngredient = "Sheriechandolariem";
