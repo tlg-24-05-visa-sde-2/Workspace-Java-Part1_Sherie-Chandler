@@ -76,3 +76,5 @@ class Movie {
         return String.format("Movie: title=%s, releaseYear=%d, revenue=%,.2f, rating=%s, genre=%s", getTitle(), getReleaseYear(), getRevenue(), getRating(), getGenre());
     }
 }
+
+// return "Movie: title=" + getTitle() + ", releaseYear=" + getReleaseYear() + ", revenue=" + getRevenue() + ", rating=" + getRating() + ", genre=" + getGenre();
