@@ -6,25 +6,47 @@
  */
 
 import java.time.LocalDate;
+import java.time.Period;
 
 class Person {
     private final String name ;
     private final LocalDate birthDate;
+
     public Person(String name, LocalDate birthDate) {
         this.name = name;
         this.birthDate = birthDate;
 
     }
 
-    public String getName() {
+    /*
+    * Returns the person's age in whole years.
+    * This is the period of time between the birthdate and today's date
+    * This is a derived property that is calculated from existing data not a new field---the period.
+     */
+
+    public int age() {
+        LocalDate today = LocalDate.now();
+        Period period = Period.between(birthDate, today);
+        return period.getYears();
+
+    }
+
+    // calculate it in one line
+    /*
+    public int age() {
+    return Period.between(birthDate(), LocalDate.now()).getYears();
+    }
+     */
+
+    public String name() {
         return name;
     }
 
-    public LocalDate getBirthDate() {
+    public LocalDate(birthDate) {
         return birthDate;
     }
 
     public String toString() {
-        return String.format("Person: name=%s, birthDate=%s", getName(), getBirthDate());
+        return String.format("Person: name=%s, birthDate=%s", name(), ());
     }
 }
