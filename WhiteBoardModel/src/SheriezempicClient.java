@@ -1,10 +1,18 @@
- class SheriempicClient {
+ class SheriezempicClient {
      public static void main(String[] args) {
-         //Create a Sheriempic object and set its properties via individual setters.
 
-         // Next, call methods on it.
+         //Create a Sheriezempic object and set its properties via individual setters.
+         Sheriezempic sheriezempic = new Sheriezempic(AdverseReactionSeverity.Severity.Mild);
 
-         System.out.println(); // blank line, for better readability.
+         // Display RX info and side effects and adverse reactions:
+         System.out.println("Sheriezempic Drug Profile");
+
+         // Next, call methods on it---not sure what to do after wards or if I need setters. Research if my methods here should align with my main file.
+         sheriezempic.displayDrugInfo();
+         sheriezempic.displaySideEffects();
+         sheriezempic.getAdverseReaction()
+
+
 
          //
      }
