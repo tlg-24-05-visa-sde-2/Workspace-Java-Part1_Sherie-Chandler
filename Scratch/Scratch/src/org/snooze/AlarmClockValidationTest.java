@@ -1,4 +1,4 @@
-// Does the validation test work in all cases?
+package org.snooze;// Does the validation test work in all cases?
 /* This is so confusing--don't forget your whiteboard assignment tonight
  * This is a client-side main-class focused only on testing setSnoozeInterval().
  * We will do BVT (Boundary Value Testing):

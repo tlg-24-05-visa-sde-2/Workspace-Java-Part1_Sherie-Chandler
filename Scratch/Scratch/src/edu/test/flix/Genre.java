@@ -1,3 +1,5 @@
+package edu.test.flix;
+
 enum Genre {
     ANIME("Anime"),  // each of these are calling the Genre() ctor below
     DRAMA("Drama"),

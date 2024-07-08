@@ -1,3 +1,5 @@
+package edu.test;
+
 class StringTest {
 
     public static void main(String[] args) {

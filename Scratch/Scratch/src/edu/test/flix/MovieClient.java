@@ -1,3 +1,5 @@
+package edu.test.flix;
+
 class MovieClient {
 
     public static void main(String[] args) {

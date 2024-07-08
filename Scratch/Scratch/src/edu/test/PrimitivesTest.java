@@ -1,3 +1,5 @@
+package edu.test;
+
 class PrimitivesTest {
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package edu.test;
+
 import java.util.Arrays;
 
 class ArraysTest { // name your array objects, so name it plural

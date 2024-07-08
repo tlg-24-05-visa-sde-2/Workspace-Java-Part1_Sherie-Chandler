@@ -1,3 +1,5 @@
+package edu.test;
+
 class WrapperTest {
     public static void main(String[] args) {
         String ageInput = "99";
