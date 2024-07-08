@@ -1,6 +1,6 @@
-// This code was designed to inform the medical community of the groundbreaking drug Sheriezempic that is designed to decrease morbid obesity in patients with BMIs exceeding 40, its implications, and chemical makeup.
+package com.drug;// This code was designed to inform the medical community of the groundbreaking drug Sheriezempic that is designed to decrease morbid obesity in patients with BMIs exceeding 40, its implications, and chemical makeup.
 
-class Sheriezempic {
+public class Sheriezempic {
     // Properties or Attributes (with Data Encapsulation)
     private int strengthMilligrams = 100;
     private String activeIngredient = "Sheriechandolariem";
@@ -19,7 +19,7 @@ class Sheriezempic {
         System.out.println("Active Ingredient: " + activeIngredient);
         System.out.println("Strength: " + strengthMilligrams + "mg");
         // System.out.println("Patient Instructions: " + sigRX);
-       //  System.out.println("How does Sheriezempic work?: " + mechanismOfAction);
+        //  System.out.println("How does Sheriezempic work?: " + mechanismOfAction);
     }
 
     public void displaySideEffects() {
@@ -40,28 +40,26 @@ class Sheriezempic {
     }
 
     // Constructors: add 2 to 3 constructors in the business class.
-    public Sheriezempic() { (this 100, "Sheriechandolariem",
-            "May cause sounds of clucking like a chicken during sleep",
-            "May change body odor to scents of Jasmine, Oud, or Bergamot")
+    public Sheriezempic() {
+        (this 100, "Sheriechandolariem",
+                "May cause sounds of clucking like a chicken during sleep",
+                "May change body odor to scents of Jasmine, Oud, or Bergamot")
 
-        public Sheriezempic (int strengthMilligrams, String activeIngredient) {
-        this.strengthMilligrams = strengthMilligrams;
-        this.activeIngredient = activeIngredient;
+        public Sheriezempic( int strengthMilligrams, String activeIngredient){
+            this.strengthMilligrams = strengthMilligrams;
+            this.activeIngredient = activeIngredient;
         }
 
-        public Sheriezempic (int strengthMilligrams, String activeIngredient, String sideEffects, String adverseReaction) {
-        setStrengthMilligrams(strengthMilligrams);
-        setActiveIngredient(activeIngredient);
-        setSideEffects(sideEffects);
-        setAdverseReaction(adverseReaction);
+        public Sheriezempic( int strengthMilligrams, String activeIngredient, String sideEffects, String adverseReaction)
+        {
+            setStrengthMilligrams(strengthMilligrams);
+            setActiveIngredient(activeIngredient);
+            setSideEffects(sideEffects);
+            setAdverseReaction(adverseReaction);
         }
-
-
 
 
     }
-
-
 
 
     // Business or Action Methods
