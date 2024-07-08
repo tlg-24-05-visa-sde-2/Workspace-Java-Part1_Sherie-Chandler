@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
  * Application or system class to model the workings of a television.
  * It has properties/attributes, it has business methods, but NO main() method.
@@ -8,9 +10,29 @@ class Television {
     // class-level ("static") variables-these live in a classwide common area, above the instances.
     public static final int MIN_VOLUME = 0;
     public static final int MAX_VOLUME = 100;
-    public static int instanceCount = 0;
 
-    // properties or attributes - "fields" or "instance variables"
+    // dislcaimer: this is his proper way to use a Brand enum--we will do it this way for the labs, just for more practice with arrays and loops.
+    public static final String[] VALID_BRANDS = { "Samsung", "LG", "Sony", "Toshiba"};
+
+    // this method is also " up there" in the "shared zone," it does not execute inside a Telvision---whatever this means
+    private static int instanceCount = 0;
+
+    public static int getInstanceCount() {
+        return instanceCount;
+    }
+
+    public static boolean isValidBrand(String brand) {
+        boolean valid = false;
+        for (String currentBrand : VALID_BRANDS) {
+            if (currentBrand.equals(brand)) { // we have a match!
+                valid = true;
+                break;
+            }
+        }
+        return valid;
+    }
+
+    // properties or attributes - "fields" or "instance variables" // *** fix this
     private String brand = "Toshiba"; // Private field to store the brand of the television, defaulting to "Toshiba"
     private int volume = 1; // Private field to store the volume level of the television, defaulting to 1
     private boolean isMuted;
@@ -69,17 +91,15 @@ class Television {
     public String getBrand() {
         return brand; // Getter method to retrieve the brand of the television
     }
+    // disclaimer: the proper way would be to use a Brand enum
+    // we will do it this way for labs, just for more practice with arrays ans loops
+    //   VALID_BRANDS contain = { "Samsung", "LG", "Sony", "Toshiba"};
 
-    public void setBrand(String brand) { // don't use case in your whiteboard model, but enum types
-        switch (brand) {
-            case "Samsung":
-            case "LG":
-            case "Toshiba":
-            case "Sony":
-                this.brand = brand;
-                break;
-            default:
-                System.out.println("Invalid brand: " + brand + ". Only Samsung, LG, Toshiba, or Sony are valid brands.");
+    public void setBrand(String brand) {
+        if (isValidBrand(brand)) {
+            this.brand = brand;
+        } else {
+            System.out.println("Invalid brand: " + brand);
         }
     }
 
@@ -88,10 +108,11 @@ class Television {
     }
 
     public void setVolume(int volume) {
-        if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
+        if (MIN_VOLUME <= volume && volume <= MAX_VOLUME) {
             this.volume = volume;
+            isMuted = false; // clear the 'isMuted' flag, in case we were muted
         } else {
-            System.out.printf("Invalid volume: %s. Valid range is %s to %s (inclusive).",
+            System.out.printf("Invalid volume: %s. Valid range is %s to %s (inclusive).%n",
                     volume, MIN_VOLUME, MAX_VOLUME);
         }
     }
@@ -111,7 +132,6 @@ class Television {
     public static int getInstanceCount() {
         return instanceCount; // Static getter for instance count
     }
-
 
     public String toString() {
         return "Television: " +

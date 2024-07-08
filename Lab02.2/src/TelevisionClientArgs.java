@@ -26,8 +26,8 @@ class TelevisionClientArgs {
             String usage = "Usage: java TelevisionClientArgs <brand> <volume> <display>";
             String example = "Example: java TelevisionClientArgs Samsung 32 PLASMA";
             String note1 = "Note: supported displays are" + Arrays.toString(DisplayType.values());
-            String note2 = "The valid range for volume is " + Television.MIN_VOLUME + " and " + Television.MAX_VOLUME;
-            String note3 = "Brand must be Sony, Samsung, LG, Toshiba";
+            String note2 = "Note 2: Volume must be between " + Television.MIN_VOLUME + " and " + Television.MAX_VOLUME;
+            String note3 = "Note 3: Supported brands are " +Television.VALID_BRANDS;
             System.out.println(usage);
             System.out.println(example);
             System.out.println(note1);
@@ -38,7 +38,7 @@ class TelevisionClientArgs {
 
         // at this point, you can safely proceed, because you got your arguments
         // first, let's just show that we got them
-        System.out.println("You provided " + args.length + " arguments");
+        // System.out.println("You provided " + args.length + " arguments");
 
         // step 1: convert arguement strings into proper types for television
         String brand = args[0];
