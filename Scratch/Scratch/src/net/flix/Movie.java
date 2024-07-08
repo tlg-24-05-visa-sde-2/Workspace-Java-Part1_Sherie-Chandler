@@ -1,6 +1,6 @@
-package edu.test.flix;
+package net.flix;
 
-class Movie {
+public class Movie {
     // fields or instance variables
     private String title;
     private int releaseYear;

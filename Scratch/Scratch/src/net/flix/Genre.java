@@ -1,6 +1,6 @@
-package edu.test.flix;
+package net.flix;
 
-enum Genre {
+public enum Genre {
     ANIME("Anime"),  // each of these are calling the Genre() ctor below
     DRAMA("Drama"),
     HORROR("Horror!!"),
