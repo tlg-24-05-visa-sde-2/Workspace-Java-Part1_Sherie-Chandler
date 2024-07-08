@@ -2,21 +2,24 @@
 
 class Sheriezempic {
     // Properties or Attributes (with Data Encapsulation)
-    private String activeIngredient = "Sheriechandolariem";
     private int strengthMilligrams = 100;
+    private String activeIngredient = "Sheriechandolariem";
     private String sideEffects = "May cause sounds of clucking like a chicken during sleep";
     private String adverseReaction = "May change body odor to scents of Jasmine, Oud, or Bergamot";
     private String sigRX = "Take 1 tablet by mouth daily with 8 ounces of water containing olive oil";
     private String mechanismOfAction = "Sheriechandolariemase binds to leptin receptors in the hypothalamus, which leads to decreased food intake";
     private AdverseReactionSeverity adverseReactionSeverity;
 
+    public static final int MIN_STRENGTH = 100;
+    public static final int MAX_STRENGTH = 300;
+
     // Methods
     public void displayDrugInfo() {
         System.out.println("Drug Information:");
         System.out.println("Active Ingredient: " + activeIngredient);
         System.out.println("Strength: " + strengthMilligrams + "mg");
-        System.out.println("Patient Instructions: " + sigRX);
-        System.out.println("How does Sheriezempic work?: " + mechanismOfAction);
+        // System.out.println("Patient Instructions: " + sigRX);
+       //  System.out.println("How does Sheriezempic work?: " + mechanismOfAction);
     }
 
     public void displaySideEffects() {
@@ -36,10 +39,30 @@ class Sheriezempic {
         }
     }
 
-    // Constructors
-    public Sheriezempic(AdverseReactionSeverity severity) {
-        this.adverseReactionSeverity = severity;
+    // Constructors: add 2 to 3 constructors in the business class.
+    public Sheriezempic() { (this 100, "Sheriechandolariem",
+            "May cause sounds of clucking like a chicken during sleep",
+            "May change body odor to scents of Jasmine, Oud, or Bergamot")
+
+        public Sheriezempic (int strengthMilligrams, String activeIngredient) {
+        this.strengthMilligrams = strengthMilligrams;
+        this.activeIngredient = activeIngredient;
+        }
+
+        public Sheriezempic (int strengthMilligrams, String activeIngredient, String sideEffects, String adverseReaction) {
+        setStrengthMilligrams(strengthMilligrams);
+        setActiveIngredient(activeIngredient);
+        setSideEffects(sideEffects);
+        setAdverseReaction(adverseReaction);
+        }
+
+
+
+
     }
+
+
+
 
     // Business or Action Methods
 
@@ -78,35 +101,10 @@ class Sheriezempic {
         this.adverseReaction = adverseReaction;
     }
 
-    public String getSigRX() {
-        return sigRX;
-    }
 
-    public void setSigRX(String sigRX) {
-        this.sigRX = sigRX;
-    }
-
-    public String getMechanismOfAction() {
-        return mechanismOfAction;
-    }
-
-    public void setMechanismOfAction(String mechanismOfAction) {
-        this.mechanismOfAction = mechanismOfAction;
-    }
-
-    public AdverseReactionSeverity getAdverseReactionSeverity() {
-        return adverseReactionSeverity;
-    }
-
-    public void setAdverseReactionSeverity(AdverseReactionSeverity adverseReactionSeverity) {
-        this.adverseReactionSeverity = adverseReactionSeverity;
-    }
-
-
-    @Override
     public String toString() {
         return String.format("Sheriezempic{activeIngredient='%s', strengthMilligrams=%d, sideEffects='%s', adverseReaction='%s', sigRX='%s', mechanismOfAction='%s', adverseReactionSeverity=%s}",
-                activeIngredient, strengthMilligrams, sideEffects, adverseReaction, sigRX, mechanismOfAction, adverseReactionSeverity);
+                activeIngredient, strengthMilligrams, sideEffects, adverseReaction);
     }
 
 }
