@@ -25,9 +25,9 @@ class TelevisionClientArgs {
         if (args.length < 3) {
             String usage = "Usage: java TelevisionClientArgs <brand> <volume> <display>";
             String example = "Example: java TelevisionClientArgs Samsung 32 PLASMA";
-            String note1 = "Note: supported displays are" + Arrays.toString(DisplayType.values());
+            String note1 = "Note 1: Supported displays are " + Arrays.toString(DisplayType.values());
             String note2 = "Note 2: Volume must be between " + Television.MIN_VOLUME + " and " + Television.MAX_VOLUME;
-            String note3 = "Note 3: Supported brands are " +Television.VALID_BRANDS;
+            String note3 = "Note 3: Brand must be Sony, Samsung, LG, Toshiba";
             System.out.println(usage);
             System.out.println(example);
             System.out.println(note1);
@@ -40,16 +40,16 @@ class TelevisionClientArgs {
         // first, let's just show that we got them
         // System.out.println("You provided " + args.length + " arguments");
 
-        // step 1: convert arguement strings into proper types for television
+        // STEP 1: convert argument strings into proper types for Television
         String brand = args[0];
         int volume = Integer.parseInt(args[1]);
         DisplayType display = DisplayType.valueOf(args[2].toUpperCase());
 
-        // step 2: create an instance of television with these converted values
+        // STEP 2: create an instance of Television with these converted values
         Television tv = new Television(brand, volume, display);
 
-        // step 3: print it (toString()) and congratulate them on their fine purchase
+        // STEP 3: print it (toString()) and congratulate them on their fine purchase
         System.out.println("Congratulations, your custom Television is on its way!");
-        System.out.println(tv); // toString() automatically called
+        System.out.println(tv);  // toString() automatically called
     }
 }

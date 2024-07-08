@@ -7,36 +7,38 @@ class TelevisionClient {
     public static void main(String[] args) {
 
         System.out.println(Television.getInstanceCount() + " instances have been created");
+        System.out.println();
 
-        // Create instances of Television and set their properties
+        // create an instance of Television and set its properties
         Television tv1 = new Television();
-        tv1.setBrand("Samsung"); // Set brand of tv1
-        tv1.setVolume(Television.MAX_VOLUME);// crank it up
+        tv1.setBrand("Samsung");
+        tv1.setVolume(32);
         tv1.setDisplay(DisplayType.PLASMA);
 
-        Television tv2 = new Television("Sony", Television.MIN_VOLUME, DisplayType.OLED); // keep quiet
+        // create a second instance of Television using its brand-volume-display ctor
+        Television tv2 = new Television("Sony", 50, DisplayType.OLED);
 
-        Television tv3 = new Television("LG"); // Create tv3 with brand
+        // create a 3rd Television object, and give it the maximum volume
+        Television tv3 = new Television("LG", Television.MAX_VOLUME);  // CRANK IT UP !!!
 
-        // Test tv1
-        tv1.turnOn(); // Turn on tv1
-        tv1.turnOff(); // Turn off tv1
-        System.out.println(tv1); // Print details of tv1
+        // turn them all on
+        tv1.turnOn();
+        tv2.turnOn();
+        tv3.turnOn();
         System.out.println();
 
-        // Test tv2
-        tv2.turnOn(); // Turn on tv2
-        tv2.turnOff(); // Turn off tv2
-        System.out.println(tv2);
+        // turn them all off
+        tv1.turnOff();
+        tv2.turnOff();
+        tv3.turnOff();
         System.out.println();
 
-        // Test tv3
-        tv3.turnOn(); // Turn on tv3
-        tv3.turnOff(); // Turn off tv3
-        System.out.println(tv3); //
+        // show their toString() methods in action
+        System.out.println(tv1.toString());
+        System.out.println(tv2);  // toString() automatically called
+        System.out.println(tv3);
         System.out.println();
 
         System.out.println(Television.getInstanceCount() + " instances have been created");
-
     }
 }
