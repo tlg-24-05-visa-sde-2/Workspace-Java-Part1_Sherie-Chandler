@@ -17,12 +17,12 @@ class Calculator {
 
     public static double average(int first, int...rest) { // 3, 4, 9, 2, 3
         // inside here, values is automatically an array of int[]
-        int sum = first;
+        double sum = first;
 
         for (int value : rest) {
-            sum += value; // sum = sum + value
+            sum = sum + value;
         }
- return (double) sum / rest.length;
+ return  sum / (rest.length + 1);
         }
 
 
@@ -39,6 +39,7 @@ class Calculator {
         double scaled = (rand * (max - min + 1)); // 0.0000 to 11.999
         double lifted = scaled + min; // 5.00 to 16.999
         result = (int) lifted;
+        return result;
     }
 
     /*
@@ -46,13 +47,13 @@ class Calculator {
      * Uses Math.random() to generate a random double between 0.0 (inclusive) and 1.0 (exclusive),
      * scales it to the range [min, max], and then casts it to an integer.
      */
-    public static int randomInt(int min, int max) {
-        int result = 0;
-        double rand = Math.random();
-        double scaled = (rand * (max - min + 1));
-        double lifted = scaled + min;
-        result = (int) lifted;
-        return result;
+    public static int randomInt(){ return randomInt(1, 11); }
+       // int result = 0;
+        // double rand = Math.random();
+       // double scaled = (rand * (max - min + 1));
+       // double lifted = scaled + min;
+      //  result = (int) lifted;
+       // return result;
 
     }
 }
