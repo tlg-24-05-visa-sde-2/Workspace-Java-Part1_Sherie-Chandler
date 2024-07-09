@@ -1,6 +1,11 @@
 /*
  * This is an "all-static" class, i.e., it has nothing but static methods.
+ *  package edu.math; is not showing up and I don't know why but, i deleted the client and test file because it was throwing an error.
  */
+
+import static edu.math.Calculator.*;
+
+
 class Calculator {
 
     public static double add(double a, double b) {
@@ -49,7 +54,7 @@ class Calculator {
      */
 
     public static int randomInt(int max) {
-        return randomInt(1, max);  // delegate to "min-max" version, passing 1 and 'max'
+        return randomInt(1, max);  // delegate to "min-max" version, passing 1 and 'max' meaning one method calls the other
     }
 
     /*
