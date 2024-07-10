@@ -12,27 +12,27 @@ package com.hr.personnel;
  * The Department class manages employees.
  * <p>
  * Properties:
- * String name
- * String location
- * Employee[] employees  the Employees in this department.
- * int currentIndex      internal counter for number of employees in the department.
+ *   String name
+ *   String location
+ *   Employee[] employees the Employees in this department.
+ *   Int currentIndex internal counter for number of employees in the department.
  * <p>
  * Methods (excluding get/set methods):
- * void listEmployees()  print info on all employees in the department.
- * void workEmployees()  make all employees in the department work.
- * String toString()     self-explanatory.
+ *   void listEmployees() print info on all employees in the department.
+ *   Void workEmployees() make all employees in the department work.
+ *   String toString() self-explanatory.
  */
 public class Department {
     // fields
     private String name;
     private String location;
-    // 1 to-many Has-a-relationship
-    private Employee[] employees = new Employee[100]; // initially filled with nulls
+
+    // this a 1-to-Many relationships
+    private final Employee[] employees = new Employee[100]; // 100 null slots because nothing has been added to array yet
     private int currentIndex = 0;  // for dealing with the array
 
-    // constructors
+    // Ctors
     public Department() {
-        super();
     }
 
     public Department(String name, String location) {
@@ -40,12 +40,18 @@ public class Department {
         setLocation(location);
     }
 
-    // business methods
-    // Note: we don't use for-each here because we only want to access the array where employees were added.
-    // Question: what is in the array for indices where no Employee was added?  null!
+    // Business Methods or Actions
+    public void listEmployees() {
+        // Note: we don't use for-each here because we only want to access the array where employees were added.
+        // Question: what is in the array for indices where no Employee was added?Null!
+        for (int i = 0; i < currentIndex; i++) {
+            System.out.println(employees[i]);  // toString() automatically called
+        }
+    }
+
     public void workEmployees() {
         for (int i = 0; i < currentIndex; i++) {
-            System.out.println(employees.work[i]);  // toString() automatically called
+            employees[i].work();
         }
     }
 
@@ -54,25 +60,22 @@ public class Department {
             employees[i].pay();
         }
     }
-    // Hint: if a given employee is actually a SalariedEmployee, then make them do it.
+
     public void holidayBreak() {
         for (int i = 0; i < currentIndex; i++) {
-            if (employees[i] instanceof SalariedEmployee) {
-                SalariedEmployee semp = (SalariedEmployee) employees[i];
-                semp.takeVacation();
-
+            if (employees[i] instanceof SalariedEmployee salariedEmployee) {
+                salariedEmployee.takeVacation();
             }
-
         }
-
     }
 
-    // helper method to add an Employee to the array
+    // Use a helper method to add an array to Employee
+
     public void addEmployee(Employee emp) {
         employees[currentIndex++] = emp;
     }
 
-    // accessor methods
+    // Accessor Methods
     public String getName() {
         return name;
     }
@@ -91,7 +94,6 @@ public class Department {
 
     @Override
     public String toString() {
-
         return getClass().getSimpleName() + ": name=" + getName() + ", location=" + getLocation();
     }
 }

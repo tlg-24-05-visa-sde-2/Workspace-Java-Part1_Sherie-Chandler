@@ -3,28 +3,32 @@ package com.hr.personnel;
 import java.time.LocalDate;
 
 public class SalariedEmployee extends Employee {
+    // PROPERTIES
     private double salary;
 
+    //METHODS
+    @Override
+    public void pay(){
+        System.out.println(getName() + " is paid salary " + getSalary());
+    }
+
+    public void takeVacation() {
+        System.out.println(getName() + " is on vacation");
+    }
+    // CONSTRUCTORS
     public SalariedEmployee() {
     }
 
     public SalariedEmployee(String name, LocalDate hireDate) {
         super(name, hireDate);
-        // registerIn401k()
     }
 
     public SalariedEmployee(String name, LocalDate hireDate, double salary) {
-        this(name, hireDate); // changed from super to this
+        this(name, hireDate);
         setSalary(salary);
-
-    }
-    // Action or Business Method
-    @Override
-    public void pay() {
-        System.out.println(getName() + " is paid salary " + getSalary());
     }
 
-    // Accessor Methods
+    // ACCESSOR METHODS
     public double getSalary() {
         return salary;
     }
@@ -35,9 +39,6 @@ public class SalariedEmployee extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ", salary=" + getSalary();
-    }
-
-    public void takeVacation() {
+        return super.toString() + getHireDate() + ", salary=" + getSalary();
     }
 }
