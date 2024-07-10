@@ -12,6 +12,7 @@ public class SubMember extends Member {
 
     public SubMember() {
         // NOTE: there is a call to super() here! as the first line of code
+        // What is the superclass of member? Is there a no-arg constructor for this class?
         System.out.println("SubMember ctor");
     }
 }
