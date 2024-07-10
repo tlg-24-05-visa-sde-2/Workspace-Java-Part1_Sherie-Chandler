@@ -7,9 +7,11 @@ public class HourlyEmployee extends Employee {
     private double rate;
     private double hours;
 
-    // ctors
+    // ctors are not inherited
     public HourlyEmployee() {
+        super(); // a super class object must be called
     }
+
     public HourlyEmployee(String name, LocalDate hireDate) {
         super(name, hireDate);  // delegate to superclass ctor for name, hireDate
     }
@@ -20,10 +22,20 @@ public class HourlyEmployee extends Employee {
         setHours(hours);        // handle hours here, by delegating to setter
     }
 
-    // accessor methods
-    public double getRate() {
-        return rate;
+    // Actions or Business Methods
+   @Override
+    public void pay() {
+        double payment = getRate() * getHours();
+        System.out.println(getName() + " is paid hourly " + payment);
     }
+
+    // accessor methods
+    public void pay (){
+        public double getRate() {
+            return rate;
+        }
+    }
+
 
     public void setRate(double rate) {
         this.rate = rate;
@@ -39,7 +51,6 @@ public class HourlyEmployee extends Employee {
 
     @Override
     public String toString() {
-        return "HourlyEmployee: name=" + getName() + ", hireDate=" + getHireDate() +
-                ", rate=" + getRate() + ", hours=" + getHours();
+        return super.toString() + ", rate=" + getRate() + ",  + hours=" + getHours();
     }
 }

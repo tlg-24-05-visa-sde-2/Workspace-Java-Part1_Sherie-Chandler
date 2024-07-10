@@ -18,8 +18,13 @@ public class SalariedEmployee extends Employee {
         setSalary(salary);
 
     }
+    // Action or Business Method
+    @Override
+    public void pay() {
+        System.out.println(getName() + " is paid salary " + getSalary());
+    }
 
-// Accessor Methods
+    // Accessor Methods
     public double getSalary() {
         return salary;
     }
@@ -28,9 +33,11 @@ public class SalariedEmployee extends Employee {
         this.salary = salary;
     }
 
-
+    @Override
     public String toString() {
-        return "SalariedEmployee: name=" + getName() + ", hireDate=" + getHireDate() +
-                ", salary=" + getSalary();
+        return super.toString() + ", salary=" + getSalary();
+    }
+
+    public void takeVacation() {
     }
 }

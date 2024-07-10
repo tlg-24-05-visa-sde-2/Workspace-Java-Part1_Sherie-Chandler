@@ -10,17 +10,17 @@ package com.hr.personnel;
 
 /**
  * The Department class manages employees.
- *
+ * <p>
  * Properties:
- *   String name
- *   String location
- *   Employee[] employees  the Employees in this department.
- *   int currentIndex      internal counter for number of employees in the department.
- *
+ * String name
+ * String location
+ * Employee[] employees  the Employees in this department.
+ * int currentIndex      internal counter for number of employees in the department.
+ * <p>
  * Methods (excluding get/set methods):
- *   void listEmployees()  print info on all employees in the department.
- *   void workEmployees()  make all employees in the department work.
- *   String toString()     self-explanatory.
+ * void listEmployees()  print info on all employees in the department.
+ * void workEmployees()  make all employees in the department work.
+ * String toString()     self-explanatory.
  */
 public class Department {
     // fields
@@ -32,6 +32,7 @@ public class Department {
 
     // constructors
     public Department() {
+        super();
     }
 
     public Department(String name, String location) {
@@ -40,18 +41,30 @@ public class Department {
     }
 
     // business methods
-    public void listEmployees() {
-        // Note: we don't use for-each here because we only want to access the array where employees were added.
-        // Question: what is in the array for indices where no Employee was added?  null!
+    // Note: we don't use for-each here because we only want to access the array where employees were added.
+    // Question: what is in the array for indices where no Employee was added?  null!
+    public void workEmployees() {
         for (int i = 0; i < currentIndex; i++) {
-            System.out.println(employees[i]);  // toString() automatically called
+            System.out.println(employees.work[i]);  // toString() automatically called
         }
     }
 
-    public void workEmployees() {
+    public void payEmployees() {
         for (int i = 0; i < currentIndex; i++) {
-            employees[i].work();
+            employees[i].pay();
         }
+    }
+    // Hint: if a given employee is actually a SalariedEmployee, then make them do it.
+    public void holidayBreak() {
+        for (int i = 0; i < currentIndex; i++) {
+            if (employees[i] instanceof SalariedEmployee) {
+                SalariedEmployee semp = (SalariedEmployee) employees[i];
+                semp.takeVacation();
+
+            }
+
+        }
+
     }
 
     // helper method to add an Employee to the array
@@ -76,7 +89,9 @@ public class Department {
         this.location = location;
     }
 
+    @Override
     public String toString() {
-        return "Department: name=" + getName() + ", location=" + getLocation();
+
+        return getClass().getSimpleName() + ": name=" + getName() + ", location=" + getLocation();
     }
 }
