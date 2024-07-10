@@ -33,6 +33,12 @@ public class Television {
     private int volume;
     private DisplayType display = DisplayType.LED;
 
+    private boolean isMuted; // for muting behavior
+    private int oldVolume; // for muting behavior
+
+    //Television HAS-A-TUNER (a component part)
+    private final Tuner tuner = new Tuner(); // instantiated internally, Not exposed
+
     // CONSTRUCTORS - special methods that get called when the client says "new"
     public Television() {
         instanceCount++;
@@ -54,6 +60,15 @@ public class Television {
     }
 
     // BUSINESS METHODS (functions) - what operations can com.entertainment.Television objects do?
+    // business or action methods
+    public void ChangeChannel(String channel) {
+        tuner.setChannel(channel); // delegate to contained Tuner object 'tuner'
+    }
+
+    public String getCurrentChannel(){
+        return tuner.getChannel(); // inserted on 7/9/204 delegate to contained Tuner object 'tuner'
+    }
+
     public void turnOn() {
         boolean isConnected = verifyInternetConnection();
         System.out.println("Turning on your " + brand + " television to volume " + volume);
@@ -113,14 +128,18 @@ public class Television {
     }
 
     private boolean verifyInternetConnection() {
-        return true;
+        return true; // fake implementation
     }
 
-    @Override
     public String toString() {
-        return "com.entertainment.Television" +
-                ": brand=" + getBrand() +
-                ", volume=" + getVolume() +
-                ", display=" + getDisplay();
+        String volumeString = isMuted() ? "<muted>" : String.valueOf(getVolume());
+
+        return String.format("Television: brand=%s, volume=%s, display=%s, currentChannel=%s"
+        getBrand(), volumeString, getDisplay(), getCurrentChannel();
+    }
+
+    {
+        return "Television: brand=" + getBrand() + ", volume" + volumeString + ", display=" + getDisplay();
+
     }
 }
