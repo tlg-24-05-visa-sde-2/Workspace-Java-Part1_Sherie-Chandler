@@ -22,15 +22,19 @@ class HRClient {
         Department dept = new Department("Sales", "Seattle");
         System.out.println(dept);
 
-        // add Employees to it
+
         dept.addEmployee(new Employee("Jason", LocalDate.of(1990, 8, 24)));
         dept.addEmployee(new Employee("Julie", LocalDate.of(2000, 2, 2)));
 
-        // list its Employees
+        dept.addEmployee(new SalariedEmployee("Tyrone", LocalDate.of(2002, 1, 1),1800));
+
+        dept.addEmployee(new HourlyEmployee("Liam", LocalDate.of(1991, 12, 12),95.0, 78.0));
+
+
         System.out.println("\nList employees:");
         dept.listEmployees();
 
-        // make its Employees work
+
         System.out.println("\nMake employees work:");
         dept.workEmployees();
     }
