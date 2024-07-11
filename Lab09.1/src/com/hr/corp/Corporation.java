@@ -17,9 +17,9 @@ public class Corporation implements TaxPayer {
     private String name;
 
     public Corporation(String name) {
+
         setName(name);
     }
-
     @Override  // interface TaxPayer
     public void payTaxes() {
         System.out.println(getName() +
@@ -27,10 +27,12 @@ public class Corporation implements TaxPayer {
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 }
