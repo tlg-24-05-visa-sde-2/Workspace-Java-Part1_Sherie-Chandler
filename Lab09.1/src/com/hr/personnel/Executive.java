@@ -3,33 +3,33 @@ package com.hr.personnel;
 import java.time.LocalDate;
 
 public class Executive extends SalariedEmployee {
-    public Executive() {
-        super();
-    }
-    public Executive(String name, LocalDate hireDate) {
+    public static final double DEFAULT_STANDARD_DEDUCTION = 500_000;
 
-        super(name, hireDate);
+    // METHODS
+    @Override
+    public void work() {
+        System.out.println(getName() + " is enjoying a nice round of golf.");
     }
-    public Executive(String name, LocalDate hireDate, double salary) {
 
-        super(name, hireDate, salary);
-    }
-    @Override // interface TaxPayer (default method)
-    public double fileReturn() {
-        System.out.println("Return filed electronically");
-
-        return 0;
+    @Override  // interface Taxpayer (default method)
+    public void fileReturn() {
+        System.out.println("Return filed electronically.");
     }
 
     @Override
-    public double getStandarDeduction() {
-        return 0.5 * getSalary();
+    public double getStandardDeduction() {
+        return DEFAULT_STANDARD_DEDUCTION;
     }
 
-    // Business Methods
-    public void work(){
-        System.out.println(getName() + " is enjoying 18 holes of golf");
-
-    }
+    // CONSTRUCTORS
+    public Executive() {
     }
 
+    public Executive(String name, LocalDate hireDate) {
+        super(name, hireDate);
+    }
+
+    public Executive(String name, LocalDate hireDate, double salary) {
+        super(name, hireDate, salary);
+    }
+}
