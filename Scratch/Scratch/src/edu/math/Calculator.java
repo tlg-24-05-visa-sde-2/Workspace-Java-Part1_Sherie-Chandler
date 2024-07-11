@@ -1,70 +1,72 @@
-/*
- * This is an "all-static" class, i.e., it has nothing but static methods.
- *  package edu.math; is not showing up and I don't know why but, i deleted the client and test file because it was throwing an error.
- */
-
-import static edu.math.Calculator.*;
-
+package edu.math;
 
 class Calculator {
 
+
+
     public static double add(double a, double b) {
-        return (a + b);
+        return a + b;
     }
 
     public static double subtract(double a, double b) {
         return a - b;
     }
 
+    public static double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public static double divide(double a, double b) {
+        return a / b;
+    }
+
     public static boolean isEven(int value) {
         return value % 2 == 0;
     }
 
-    /*
-     * Returns the average of the supplied integers.
-     * WATCH OUT: the client caller can pass zero or more ints for this 'values'
-     */
-    public static double avg(int first, int... rest) {    // first: 3, rest: 4, 9, 2, 3
-        // 'rest' is automatically an array of int[] inside here
-        double sum = first;
+
+    public static double average(int first, int... rest) {
+        // array of int[]
+        int sum = first;
 
         for (int value : rest) {
-            sum = sum + value;  // sum += value
+            sum = sum + value;
         }
-        return sum / (rest.length + 1);
+        return (double) sum / (rest.length + 1);
     }
 
     /*
-     * Returns a random integer between 'min' and 'max' (inclusive).
-     * TODO: implement this algorithm
+     * Returns a random integer between min and max e.g. inclusive
      */
-    public static int randomInt(int min, int max) {         // min: 5 and max: 16
-        int result = 0;
+    public static int randomInt(int min, int max) { // Min = 5, Max = 16
 
-        double random = Math.random();                      // 0.0000 to 0.9999
-        double scaled = (random * (max - min + 1));         // 0.0000 to 11.9999
-        double lifted = scaled + min;                       // 5.0000 to 16.9999
-        result = (int) lifted;                              // Downcast now its 5 to 16
-
-        return result;
+        return (int) (Math.random() * (max - min + 1)) + min; // 0.000-11.9999 + 1=12.9999, then add 5 (5.000 - 16.999),
+        // int downcasts (takes off) decimal results in 5-16
     }
 
     /*
-     * Returns a random integer between 1 and 'max' (inclusive)
+     * returns a random int between 1 and 'max'
      */
-
     public static int randomInt(int max) {
-        return randomInt(1, max);  // delegate to "min-max" version, passing 1 and 'max' meaning one method calls the other
+        return randomInt(1, max); // delegate to "min-max" version, 1 and "max"
     }
 
     /*
-     * Returns a random integer between 1 and 11 (inclusive).
-     *
-     * HINT: see a class called Math (in package java.lang), look for a helpful method here.
-     * NOTE: these methods are all "static," which means you call them as follows:
-     *    Math.methodName()
+     * Returns a random integer between 1 and 11 inclusive
+     * HINT: see a class called Math in package java.lang, look for a helpful method here
+     * These methods are all "static", which means you call them:
+     *  Math.methodName()
      */
-    public static int randomInt() {
-        return randomInt(1, 11);
+    public static int randomInt(){
+        return randomInt(1, 11); // delegate to "min-max" version, 1 for min and 11 for max
+
+//        int result = 0;
+//
+//        double rand = Math.random(); // 0.0000 to 0.9999
+//        double scaled = (rand * 11) + 1; // 1.0000 to 11.9999
+//        result = (int) scaled; //explicit downcast from double to int
+//
+//        return result;
     }
 }
+

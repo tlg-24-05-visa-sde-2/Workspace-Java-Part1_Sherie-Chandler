@@ -11,6 +11,10 @@ class PersonClient {
 
 
         System.out.println(p1);
+        System.out.println();
+
+        PersonRecord p2 = new PersonRecord("Essa", LocalDate.of(2023, 12, 22));
+        System.out.printf("%s is %s years old \n", p2.name(), p2.age());
 
     }
 }

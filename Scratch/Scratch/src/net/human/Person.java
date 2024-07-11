@@ -13,6 +13,7 @@ class Person {
     private final LocalDate birthDate;
 
     public Person(String name, LocalDate birthDate) {
+        super();
         this.name = name;
         this.birthDate = birthDate;
     }
@@ -44,7 +45,9 @@ class Person {
         return birthDate;
     }
 
+    @Override
     public String toString() {
-        return String.format("Person: name=%s, birthDate=%s", name(), birthDate());
+        return String.format("%s: name=%s, birthDate=%s",
+                getClass().getSimpleName(),name(), birthDate());
     }
 }
