@@ -12,6 +12,8 @@ import com.hr.personnel.Department;
 import com.hr.personnel.Employee;
 import com.hr.personnel.HourlyEmployee;
 import com.hr.personnel.SalariedEmployee;
+import gov.irs.IllegalWageException;
+
 import java.time.LocalDate;
 
 /**
@@ -19,16 +21,27 @@ import java.time.LocalDate;
  */
 class HRClient {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         // create Department object
         Department dept = new Department("Sales", "Seattle");
         System.out.println(dept);
 
         // add Employees to it
         dept.addEmployee(new SalariedEmployee("Jason",  LocalDate.of(1990, 8, 24), 2250.0));
-        dept.addEmployee(new HourlyEmployee("Julie",    LocalDate.of(2000, 2, 2), 5.0, 30.0));
-        dept.addEmployee(new SalariedEmployee("Tyrone", LocalDate.of(1989, 12, 26), 1250.0));
-        dept.addEmployee(new HourlyEmployee("Liam",    LocalDate.of(2002, 9, 12), 40.0, 40.0));
+        dept.addEmployee(new HourlyEmployee("Julie",    LocalDate.of(2000, 2, 2), 35.0, 30.0));
+
+        try {
+            dept.addEmployee(new SalariedEmployee("Tyrone", LocalDate.of(1989, 12, 26), 1250.0));
+
+
+        } catch (IllegalWageException e) {
+            System.out.println(e); /* toString() automatically called */
+        }
+        try {
+            dept.addEmployee(new HourlyEmployee("Liam",    LocalDate.of(2002, 9, 12), 40.0, 40.0));
+        } catch (IllegalWageException e) {
+            System.out.println(e);
+        }
 
         // list its Employees
         System.out.println("\nList employees:");
