@@ -12,6 +12,7 @@ import java.time.LocalDate;
 
 public class HourlyEmployee extends Employee {
     // fields
+    public static final double FEDERAL_MINIMUM_WAGE = 15.0;
     private double rate;
     private double hours;
 
@@ -35,6 +36,9 @@ public class HourlyEmployee extends Employee {
         System.out.println(getName() + " is paid hourly " + (getRate() * getHours()));
     }
 
+    private String getRate() {
+    }
+
     @Override  // interface TaxPayer
     public void payTaxes() {
         double taxes = getRate() * getHours() * HOURLY_TAX_RATE;
@@ -42,12 +46,17 @@ public class HourlyEmployee extends Employee {
     }
 
     // accessor methods
-    public double getRate() {
-        return rate;
-    }
 
-    public void setRate(double rate) {
-        this.rate = rate;
+    // Modify setRate() to throw an IllegalArgumentException
+
+    public void setRate(double rate) throws IllegalArgumentException{
+        if (rate < FEDERAL_MINIMUM_WAGE) { // invalid < 15
+            throw new IllegalArgumentException( String.format(" Illegal wage: %s. Feder minimum is %s.", rate, FEDERAL_MINIMUM_WAGE + ".");
+
+        }
+        /* you do need the else block { */
+            this.rate = rate;
+
     }
 
     public double getHours() {
@@ -57,6 +66,8 @@ public class HourlyEmployee extends Employee {
     public void setHours(double hours) {
         this.hours = hours;
     }
+
+
 
     @Override
     public String toString() {
