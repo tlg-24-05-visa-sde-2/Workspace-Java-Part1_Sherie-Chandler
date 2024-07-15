@@ -13,74 +13,77 @@ import java.util.Collection;
 
 /**
  * The Department class manages employees.
- * <p>
+ *
  * Properties:
  *   String name
  *   String location
- *   Employee[] employees the Employees in this department.
- *   Int currentIndex internal counter for number of employees in the department.
- * <p>
+ *   Employee[] employees  the Employees in this department.
+ *   int currentIndex      internal counter for number of employees in the department.
+ *
  * Methods (excluding get/set methods):
- *   void listEmployees() print info on all employees in the department.
- *   Void workEmployees() make all employees in the department work.
- *   String toString() self-explanatory.
+ *   void listEmployees()  print info on all employees in the department.
+ *   void workEmployees()  make all employees in the department work.
+ *   String toString()     self-explanatory.
  */
 public class Department {
     // fields
     private String name;
     private String location;
-
-    // this a 1-to-Many relationships
-
     private final Collection<Employee> employees = new ArrayList<>();
 
-    // Ctors
+    // constructors
     public Department() {
-        super();
     }
 
     public Department(String name, String location) {
-        super();
         setName(name);
         setLocation(location);
     }
 
-    // Business Methods or Actions
-    public void listEmployees() {
+    // business methods
 
-        for (Employee emp : employees) {
+
+    public void listEmployees() {
+        for(Employee emp : employees) {
             System.out.println(emp);
-        }
         }
     }
 
     public void workEmployees() {
-        for (Employee emp : employees) {
-            employees.work();
+        for(Employee emp : employees) {
+            emp.work();
         }
     }
 
-    public void payEmployees() {
-        for (Employee emp : employees) {
-            employees.pay();
+    public void payEmployees(){
+        for(Employee emp : employees) {
+            emp.pay();
         }
     }
 
-    public void holidayBreak() {
-        for (int i = 0; i < currentIndex; i++) {
-            if (employees[i] instanceof SalariedEmployee salariedEmployee) {
-                salariedEmployee.takeVacation();
+    /*
+     * Office closure, i.e., all employees that take vacation are asked to do so.
+     */
+    public void holidayBreak(){
+        for (Employee emp : employees) {
+            if(emp instanceof SalariedEmployee semp){
+                //downcast the emp reference employees[i] to more specific type SE
+                //we need to do this in order to call SalariedEmployee
+
+                semp.takeVacation();
+
+                //downcast and method call in one shot
+                //((SalariedEmployee) employees[i]).takeVacation();
             }
         }
     }
 
-    // Use a helper method to add an array to Employee
-
+    // helper method to add an Employee to the array
     public void addEmployee(Employee emp) {
         employees.add(emp);
+    }
 
-
-    // Accessor Methods
+    // accessor methods
     public String getName() {
         return name;
     }
@@ -102,3 +105,4 @@ public class Department {
         return getClass().getSimpleName() + ": name=" + getName() + ", location=" + getLocation();
     }
 }
+
