@@ -13,19 +13,19 @@ import java.util.Collection;
 
 /**
  * The IRS maintains a collection of TaxPayers and collects taxes from them.
- * <p>
+ *
  * Note the interface type TaxPayer, used throughout the class.
  */
 public class IRS {
     // what types of objects can this array contain?
-private final Collection<TaxPayer>payers = new ArrayList<>();
+    private final Collection<TaxPayer> payers = new ArrayList<>();
 
     public void collectTaxes() {
         for (TaxPayer payer : payers) {
-            double deduction = payers.getStandardDeduction();
+            double deduction = payer.getStandardDeduction();
             System.out.println("Tax payer's deduction is: " + deduction);
-            payers.fileReturn();
-            payers.payTaxes();
+            payer.fileReturn();
+            payer.payTaxes();
             System.out.println();
         }
     }
@@ -34,6 +34,5 @@ private final Collection<TaxPayer>payers = new ArrayList<>();
     // what types of objects can be passed to this method?
     public void register(TaxPayer payer) {
         payers.add(payer);
-
     }
 }
